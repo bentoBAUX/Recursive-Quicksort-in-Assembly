@@ -32,6 +32,8 @@ quicksort(array, low, high):
     quicksort(array, j + 1, high)    // Elements >= pivot
 ```
 
+Both C and Assembly implementation follow exactly this pseudocode. 
+
 ## Project Structure
 - src/: Contains the source files for both the C and Assembly implementations of Quicksort.
 - Makefile: Handles compilation for both implementations. Run `make` to compile, then `make run` to execute.
