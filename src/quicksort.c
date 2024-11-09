@@ -27,9 +27,8 @@ int main()
 void quicksort_c(int *array, size_t low, size_t high)
 {
     if (low >= high)
-    {
         return;
-    }
+    
     int pivot = array[low];
     int i = low - 1;
     int j = high + 1;
