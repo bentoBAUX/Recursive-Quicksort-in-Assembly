@@ -48,6 +48,7 @@ void quicksort_c(int *array, size_t low, size_t high)
         {
             break;
         }
+        
         int temp = (int)array[i];
         array[i] = (int)array[j];
         array[j] = temp;
