@@ -1,10 +1,12 @@
 .intel_syntax noprefix
-.global quicksort_asm
+.global sort
 
 .text
 
+// count -> rsi
+
 // array -> rdi  
-// low -> rsi  
+// low -> rsi = 0  
 // high -> rdx  
 
 // pivot -> rax
@@ -13,7 +15,16 @@
 
 // temp -> rcx
 
-quicksort_asm:
+
+sort:
+    test rsi, rsi 
+    jle done
+    dec rsi
+    xor rdx, rdx
+    mov rdx, rsi
+    xor rsi, rsi
+
+quicksort:
     cmp rsi, rdx 
     jge done
 
@@ -52,14 +63,15 @@ inner_done:
     push rdx
     push r10
     mov rdx, r10
-    call quicksort_asm
+    call quicksort
     pop r10
     pop rdx
 
     push rdx
     lea rsi, [r10 + 1]
-    call quicksort_asm
+    call quicksort
     pop rdx
+
 
 done:
     ret

@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-extern void quicksort_asm(int *array, size_t low, size_t high);
-void quicksort_c(int *array, size_t low, size_t high);
+extern void sort(int *array, size_t count);                     // For one uni assignment exercise
+extern void quicksort_asm(int *array, size_t low, size_t high); // For another uni assignment exercise
+void quicksort_c(int *array, size_t low, size_t high);          // For my own reference
 
 int main()
 {
@@ -21,8 +22,8 @@ int main()
 
     printf("\n");
 
-    printf("ASM: ");
-    quicksort_asm(arrayASM, 0, lengthASM - 1);
+    printf("ASM Sort: ");
+    sort(arrayASM, sizeof(arrayASM)/sizeof(arrayASM[0]));
     for (int i = 0; i < lengthASM; i++)
     {
         printf("%d ", arrayASM[i]);
@@ -30,6 +31,14 @@ int main()
 
     printf("\n");
 
+    printf("ASM Quicksort: ");
+    quicksort_asm(arrayASM, 0, lengthASM - 1);
+    for (int i = 0; i < lengthASM; i++)
+    {
+        printf("%d ", arrayASM[i]);
+    }
+
+    printf("\n");
 
     return 0;
 }
