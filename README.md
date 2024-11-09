@@ -24,9 +24,7 @@ quicksort(array, low, high):
         if i >= j:
             break
 
-        temp = array[i]
-        array[i] = array[j]
-        array[j] = temp
+        swap array[i] and array[j]
 
     quicksort(array, low, j)         // Elements < pivot
     quicksort(array, j + 1, high)    // Elements >= pivot
