@@ -1,0 +1,37 @@
+# Ignore object files and executables
+*.o
+*.out
+*.exe
+
+# Ignore C and assembly compiled binaries
+quicksort_c
+quicksort_asm
+main
+
+# Ignore build and debug files
+*.log
+*.stackdump
+
+# Ignore temporary files
+*~
+*.tmp
+*.swp
+.DS_Store
+
+# Ignore makefile-generated files
+Makefile~
+
+# Ignore OS-specific files
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Linux
+.trash
+
+# Ignore hidden system files
+.idea/
+.vscode/

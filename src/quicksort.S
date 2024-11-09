@@ -49,17 +49,17 @@ outer_loop:
     jmp outer_loop
 
 inner_done:
-    push rdx
-    push r10
-    mov rdx, r10
-    call quicksort_asm
-    pop r10
-    pop rdx
+    push rdx              // Save original high value
+    push r10              // Save partition boundary j for left partition
+    mov rdx, r10          // Set high to j for the left partition call
+    call quicksort_asm    // Recursive call for the left partition
+    pop r10               // Restore j for use in the second recursive call 
+    pop rdx               // Restore original high for use in the second recursive call
 
-    push rdx
-    lea rsi, [r10 + 1]
-    call quicksort_asm
-    pop rdx
+    push rdx              // Save high again for right partition call
+    lea rsi, [r10 + 1]    // Set low to j + 1 for the right partition
+    call quicksort_asm    // Recursive call for the right partition
+    pop rdx               // Restore original high value
 
 done:
     ret
